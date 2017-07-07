@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset="utf-8">
+    <meta name=“viewport” content=“width=device-width", initial-scale=1">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h3 class="title">Hangman</h3>
+      <h3 class="guessesLeft">{{guessesLeft}} guesses left</h3>
+    </header>
+    <section>
+      <div class="all_letters">
+        {{#letters}}
+        <span class="letter">{{.}}</span>
+        {{/letters}}
+      </div>
+    </section>
+    <div class="errors">
+        {{#errors}}
+        <p>{{msg}}</p>
+        {{/errors}}
+        {{#duplicate}}
+        <p>{{.}}</p>
+        {{/duplicate}}
+    </div>
+    <div class="pickletters">
+      <form class="chooseletters" action="" method="post">
+        <input type="text" name="userInput" placeholder="Pick a letter" value="">
+        <input type="submit" name="" value="guess">
+      </form>
+    </div>
+    <div class="Gameover">
+      <form class="playagain" action="" method="get">
+        {{#Gameover}}{{.}}<input type="submit" name="Gameover" value="Again?">{{/Gameover}}
+      </form>
+    </div>
+    <div class="guessedLetters">
+      <h4>Guessed Letters</h4>
+      {{#lettersUsed}}
+      <span>{{.}}</span>
+      {{/lettersUsed}}
+      <div class="letterBox">
+      </div>
+    </div>
+  </body>
+</html>
